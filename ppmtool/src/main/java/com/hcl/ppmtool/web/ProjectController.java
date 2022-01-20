@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hcl.ppmtool.domain.Project;
 import com.hcl.ppmtool.services.ProjectService;
 
+
 @RestController
 @RequestMapping("/api/project")
 public class ProjectController {
@@ -21,6 +22,6 @@ public class ProjectController {
 	@PostMapping("")
 	public ResponseEntity<Project> createNewProject(@RequestBody Project project) {
 		Project project1 = pService.saveOrUpdateProject(project);		
-		return new ResponseEntity<Project>(project, HttpStatus.CREATED);
+		return new ResponseEntity<Project>(project1, HttpStatus.CREATED);
 	}
 }
