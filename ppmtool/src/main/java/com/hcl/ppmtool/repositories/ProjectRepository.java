@@ -1,7 +1,5 @@
 package com.hcl.ppmtool.repositories;
 
-import java.util.List;
-
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
