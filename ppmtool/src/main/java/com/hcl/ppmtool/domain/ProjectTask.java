@@ -2,16 +2,21 @@ package com.hcl.ppmtool.domain;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class ProjectTask {
@@ -42,6 +47,11 @@ public class ProjectTask {
 	protected void onUpdate() {
 		this.updated_At = new Date();
 	}
+	
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+	@JoinColumn(name="backlog_id", updatable = false, nullable = false)
+	@JsonIgnore
+	private Backlog backlog;
 	
 	public ProjectTask(){}
 
