@@ -115,6 +115,12 @@ public class ProjectTask {
 	public void setUpdated_At(Date updated_At) {
 		this.updated_At = updated_At;
 	}
+	public Backlog getBacklog() {
+		return backlog;
+	}
+	public void setBacklog(Backlog backlog) {
+		this.backlog = backlog;
+	}
 	@Override
 	public String toString() {
 		return "ProjectTask [id=" + id + ", projectSequence=" + projectSequence + ", summary=" + summary
